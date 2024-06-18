@@ -7,7 +7,7 @@ This project demonstrates a Spring Boot application that provides CRUD operation
 - JDK 21 or higher
 - Maven 3.6.0 or higher
 - Docker (for running Kafka)
-- PostgreSQL (configured for Flyway)
+- H2 Database (configured for Flyway)
 
 ## Getting Started
 
