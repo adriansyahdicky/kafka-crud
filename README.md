@@ -4,7 +4,7 @@ This project demonstrates a Spring Boot application that provides CRUD operation
 
 ## Prerequisites
 
-- JDK 11 or higher
+- JDK 21 or higher
 - Maven 3.6.0 or higher
 - Docker (for running Kafka)
 - PostgreSQL (configured for Flyway)
@@ -56,3 +56,43 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+# Employee Management API
+
+API ini digunakan untuk mengelola data karyawan.
+
+## Endpoint
+
+Base URL: `http://localhost:8282/api/v1/employees`
+
+## Daftar Operasi CRUD
+
+### 1. Retrieve all employees
+
+- **Method**: GET
+- **Endpoint**: `/`
+- **Deskripsi**: Mendapatkan daftar semua karyawan yang tersimpan.
+
+#### Contoh Permintaan:
+```http
+GET http://localhost:8282/api/v1/employees
+
+POST http://localhost:8282/api/v1/employees
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com"
+}
+
+PUT http://localhost:8282/api/v1/employees/1
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "jane.doe@example.com"
+}
+
+
