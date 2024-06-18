@@ -35,15 +35,28 @@ Create a `docker-compose.yml` file in your project directory and add the followi
 version: '3.8'
 
 services:
-  rabbitmq:
-    image: rabbitmq:3.9.12-management
-    container_name: rabbitmq
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    container_name: zookeeper
     ports:
-      - "5672:5672"   # RabbitMQ main port
-      - "15672:15672" # RabbitMQ management UI port
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka:2.13-3.1.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "topic1:1:1"
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
 
 # Employee Management API
 
