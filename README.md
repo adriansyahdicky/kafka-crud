@@ -81,18 +81,21 @@ POST http://localhost:8282/api/v1/employees
 Content-Type: application/json
 
 {
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john.doe@example.com"
+  "name": "John",
+  "mobilePhone": "08787182718",
+  "address": "jakarta"
 }
 
-PUT http://localhost:8282/api/v1/employees/1
+PUT http://localhost:8282/api/v1/employees/172810-0201930-102019
 Content-Type: application/json
 
 {
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "jane.doe@example.com"
+  "name": "John",
+  "mobilePhone": "08787182718",
+  "address": "jakarta"
 }
+
+DELETE http://localhost:8282/api/v1/employees/172810-0201930-102019
+
 
 
