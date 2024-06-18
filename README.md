@@ -14,5 +14,5 @@ This project demonstrates a Spring Boot application that provides CRUD operation
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/yourusername/spring-boot-kafka-crud.git
+git clone https://github.com/adriansyahdicky/kafka-crud.git
 cd spring-boot-kafka-crud
